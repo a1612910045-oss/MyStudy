@@ -13,7 +13,7 @@
  */
 
 import { readdirSync, readFileSync, writeFileSync, existsSync } from "node:fs";
-import { join, extname, dirname } from "node:path";
+import { join, extname, dirname, relative as relPath } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -62,13 +62,12 @@ function buildSection(dirName, label) {
     const raw = readFileSync(f, "utf-8");
     const lines = raw.split("\n");
 
-    // 相对路径：res/projects/xxx.md → projects/xxx
-    const relative = f.replace(baseDir + "\\", "").replace(/\\/g, "/");
-    const normalized = relative.replace(/\\/g, "/");
-    const pathParts = normalized.split("/");
+    // 相对路径：res/projects/xxx.md → projects/xxx（用 path.relative 跨平台安全）
+    const relative = relPath(baseDir, f).replace(/\\/g, "/");
+    const pathParts = relative.split("/");
     const fileName = pathParts.at(-1) || "";
     const folders = pathParts.slice(0, -1);
-    const slug = normalized.replace(/\.md$/i, "");
+    const slug = relative.replace(/\.md$/i, "");
 
     const title = (lines[0] || "").replace(/^#\s*/, "").trim();
     const metaLine = (lines[1] || "").replace(/^>\s*/, "").trim();
