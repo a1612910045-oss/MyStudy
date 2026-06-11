@@ -1,0 +1,433 @@
+[
+  {
+    "slug": "C#/00-学习路线",
+    "folders": [
+      "C#"
+    ],
+    "fileName": "00-学习路线.md",
+    "title": "C# 学习路线",
+    "date": "2026-06",
+    "tags": [
+      "C#",
+      "学习路线",
+      ".NET"
+    ],
+    "excerpt": "这套笔记适合从“会写一点代码”过渡到“能独立写 C# 业务逻辑、读 Unity 项目代码、理解常见 .NET API”的学习路径。建议不要只背语法，而是按“语法 → 类型 → 对象模型 → 集合与泛型 → 委托事件 → LINQ → 异步 → Unity 实战”的顺序推进。\r\n\r\n## 学习目标\r\n"
+  },
+  {
+    "slug": "C#/Unity/10-Unity中的CSharp实践",
+    "folders": [
+      "C#",
+      "Unity"
+    ],
+    "fileName": "10-Unity中的CSharp实践.md",
+    "title": "Unity 中的 C# 实践",
+    "date": "2026-06",
+    "tags": [
+      "C#",
+      "Unity",
+      "MonoBehaviour"
+    ],
+    "excerpt": "Unity 里的 C# 不是单纯的控制台 C#。你写的脚本要和引擎生命周期、序列化系统、Inspector、资源加载、协程和性能约束一起工作。\r\n\r\n## MonoBehaviour\r\n\r\nUnity 脚本通常继承 `MonoBehaviour`：\r\n\r\n```csharp\r\npublic clas"
+  },
+  {
+    "slug": "C#/基础/01-类型变量与字符串",
+    "folders": [
+      "C#",
+      "基础"
+    ],
+    "fileName": "01-类型变量与字符串.md",
+    "title": "类型、变量与字符串",
+    "date": "2026-06",
+    "tags": [
+      "C#",
+      "基础",
+      "类型系统"
+    ],
+    "excerpt": "C# 是静态类型语言。变量在编译时就有明确类型，编译器会帮你检查很多错误。学习 C# 的第一步，不是记住所有关键字，而是理解“类型决定了这个值能做什么”。\r\n\r\n## 变量声明\r\n\r\n最常见写法：\r\n\r\n```csharp\r\nint level = 10;\r\nfloat speed = 3.5f;\r"
+  },
+  {
+    "slug": "C#/基础/02-流程控制方法与作用域",
+    "folders": [
+      "C#",
+      "基础"
+    ],
+    "fileName": "02-流程控制方法与作用域.md",
+    "title": "流程控制、方法与作用域",
+    "date": "2026-06",
+    "tags": [
+      "C#",
+      "基础",
+      "方法"
+    ],
+    "excerpt": "流程控制决定代码“走哪条路”，方法决定代码“如何分块”。写 C# 时，应该尽早养成把复杂逻辑拆成小方法的习惯。\r\n\r\n## if / else\r\n\r\n```csharp\r\nif (hp <= 0)\r\n{\r\n    Die();\r\n}\r\nelse if (hp < 30)\r\n{\r\n    PlayLo"
+  },
+  {
+    "slug": "C#/基础/03-类对象结构体与属性",
+    "folders": [
+      "C#",
+      "基础"
+    ],
+    "fileName": "03-类对象结构体与属性.md",
+    "title": "类、对象、结构体与属性",
+    "date": "2026-06",
+    "tags": [
+      "C#",
+      "OOP",
+      "类型设计"
+    ],
+    "excerpt": "类和对象是 C# 组织复杂代码的核心。类不只是“字段的集合”，更重要的是把数据和行为放在一起，并保护对象始终处于合法状态。\r\n\r\n## 类与对象\r\n\r\n类是蓝图，对象是实例：\r\n\r\n```csharp\r\npublic class Player\r\n{\r\n    public string Name {"
+  },
+  {
+    "slug": "C#/基础/04-继承接口与多态",
+    "folders": [
+      "C#",
+      "基础"
+    ],
+    "fileName": "04-继承接口与多态.md",
+    "title": "继承、接口与多态",
+    "date": "2026-06",
+    "tags": [
+      "C#",
+      "OOP",
+      "接口"
+    ],
+    "excerpt": "继承和接口都能表达“某些类型有共同能力”，但它们的使用场景不同。写游戏代码时，组合和接口通常比深继承更灵活。\r\n\r\n## 继承\r\n\r\n继承表示“是一个”关系：\r\n\r\n```csharp\r\npublic class Enemy\r\n{\r\n    public virtual void Attack()\r"
+  },
+  {
+    "slug": "C#/进阶/05-集合泛型与迭代器",
+    "folders": [
+      "C#",
+      "进阶"
+    ],
+    "fileName": "05-集合泛型与迭代器.md",
+    "title": "集合、泛型与迭代器",
+    "date": "2026-06",
+    "tags": [
+      "C#",
+      "泛型",
+      "集合"
+    ],
+    "excerpt": "集合是业务代码最常用的工具之一。泛型让集合在复用的同时保持类型安全。你不需要记住所有集合，但必须知道常见集合的适用场景。\r\n\r\n## List<T>\r\n\r\n`List<T>` 是动态数组，适合按顺序存储元素：\r\n\r\n```csharp\r\nvar items = new List<Item>();\r\n"
+  },
+  {
+    "slug": "C#/进阶/06-委托事件Lambda",
+    "folders": [
+      "C#",
+      "进阶"
+    ],
+    "fileName": "06-委托事件Lambda.md",
+    "title": "委托、事件与 Lambda",
+    "date": "2026-06",
+    "tags": [
+      "C#",
+      "委托",
+      "事件"
+    ],
+    "excerpt": "委托、事件和 Lambda 是 C# 处理“回调”的核心。它们让发送者不需要知道接收者是谁，只需要在某个时机通知出去。\r\n\r\n## 委托是什么\r\n\r\n委托是一种“方法类型”。它规定一个方法需要什么参数、返回什么结果。\r\n\r\n```csharp\r\npublic delegate int DamageF"
+  },
+  {
+    "slug": "C#/进阶/07-LINQ查询思维",
+    "folders": [
+      "C#",
+      "进阶"
+    ],
+    "fileName": "07-LINQ查询思维.md",
+    "title": "LINQ 查询思维",
+    "date": "2026-06",
+    "tags": [
+      "C#",
+      "LINQ",
+      "集合"
+    ],
+    "excerpt": "LINQ 让你用统一的方式处理集合：筛选、映射、排序、分组、聚合。它的价值不是“少写几行代码”，而是让数据变换的意图更清楚。\r\n\r\n## 基本模型\r\n\r\nLINQ 通常由几个动作组成：\r\n\r\n- `Where`：筛选。\r\n- `Select`：映射。\r\n- `OrderBy` / `OrderByD"
+  },
+  {
+    "slug": "C#/进阶/08-异常调试与资源释放",
+    "folders": [
+      "C#",
+      "进阶"
+    ],
+    "fileName": "08-异常调试与资源释放.md",
+    "title": "异常、调试与资源释放",
+    "date": "2026-06",
+    "tags": [
+      "C#",
+      "异常",
+      "调试"
+    ],
+    "excerpt": "写程序不只是写成功路径。真正可靠的代码，需要认真处理失败路径：参数错误、文件不存在、网络失败、对象为空、资源未释放。\r\n\r\n## try / catch\r\n\r\n```csharp\r\ntry\r\n{\r\n    LoadConfig();\r\n}\r\ncatch (FileNotFoundException "
+  },
+  {
+    "slug": "C#/进阶/09-异步编程",
+    "folders": [
+      "C#",
+      "进阶"
+    ],
+    "fileName": "09-异步编程.md",
+    "title": "异步编程：async / await",
+    "date": "2026-06",
+    "tags": [
+      "C#",
+      "async",
+      "Task"
+    ],
+    "excerpt": "异步编程用于处理“等待”：网络请求、文件 IO、数据库、延迟任务。它的目标不是让代码变快，而是在等待期间不阻塞当前线程。\r\n\r\n## Task\r\n\r\n`Task` 表示一个异步操作：\r\n\r\n```csharp\r\nTask SaveAsync();\r\nTask<string> LoadTextAsyn"
+  },
+  {
+    "slug": "Unity学习/基础/00-Unity学习路线",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "00-Unity学习路线.md",
+    "title": "Unity 学习路线",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "学习路线",
+      "游戏开发"
+    ],
+    "excerpt": "这套笔记面向有一年左右 Unity 实际项目经验的开发者。目标不是从零入门，而是把零散经验串成体系：知道为什么这么做、有哪些替代方案、什么时候该用哪种。\n\n## 学习目标\n\n- 理解 Unity 编辑器的设计意图：场景、预制体、资源、包管理器各自解决什么问题。\n- 掌握 GameObject / C"
+  },
+  {
+    "slug": "Unity学习/基础/01-Unity编辑器与项目结构",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "01-Unity编辑器与项目结构.md",
+    "title": "Unity 编辑器与项目结构",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "编辑器",
+      "项目结构"
+    ],
+    "excerpt": "Unity 编辑器不是「代码编辑器」，它是一个实时运行的场景编辑环境。理解它的布局设计意图，能大幅减少找按钮的时间和对第三方教程的依赖。\n\n## 五大视图：谁管什么\n\n| 视图 | 中译 | 职责 |\n|---|---|---|\n| Hierarchy | 层级 | 当前场景所有 GameObjec"
+  },
+  {
+    "slug": "Unity学习/基础/02-GameObject与Component模型",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "02-GameObject与Component模型.md",
+    "title": "GameObject 与 Component 模型",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "架构",
+      "组合模式"
+    ],
+    "excerpt": "Unity 的核心架构就两个词：GameObject 和 Component。理解它们的本质，比背会一百个 API 更重要。\n\n## 不是继承树，是组合\n\n无论从哪里开始学 Unity，第一件要记住的事：\n\n> GameObject 本身几乎什么都不能做。它的所有功能都来自挂在上面的 Compone"
+  },
+  {
+    "slug": "Unity学习/基础/03-MonoBehaviour生命周期",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "03-MonoBehaviour生命周期.md",
+    "title": "MonoBehaviour 生命周期",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "生命周期",
+      "回调顺序"
+    ],
+    "excerpt": "MonoBehaviour 不是普通的 C# 类。它的方法不是由你调用，而是由 Unity 引擎在你写好的时机自动调用。理解这些回调的先后顺序，是写出正确脚本的基础。\n\n## 完整回调顺序\n\n```\nAwake()\n  ↓\nOnEnable()\n  ↓\nStart()\n  ↓\n  ┌────────"
+  },
+  {
+    "slug": "Unity学习/基础/04-Transform与坐标系",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "04-Transform与坐标系.md",
+    "title": "Transform 与坐标系",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "Transform",
+      "坐标系",
+      "向量"
+    ],
+    "excerpt": "在 Unity 里，一切对象的空间属性——位置、旋转、缩放——都由 Transform 管理。一个 GameObject 可以没有渲染、没有逻辑、没有碰撞，但一定有一个 Transform。\n\n## Transform 的三个核心属性\n\n```csharp\ntransform.position;  "
+  },
+  {
+    "slug": "Unity学习/基础/05-输入系统",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "05-输入系统.md",
+    "title": "输入系统",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "Input",
+      "Input System",
+      "键盘鼠标",
+      "触屏"
+    ],
+    "excerpt": "Unity 有两套输入方案：旧的 `Input` 类（Input Manager）和新的 Input System 包。老项目可能还在用旧的，但新项目建议直接从 Input System 开始。\n\n## 旧版 Input（Input Manager）\n\n放在 `Edit → Project Sett"
+  },
+  {
+    "slug": "Unity学习/基础/06-UGUI与界面开发",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "06-UGUI与界面开发.md",
+    "title": "UGUI 与界面开发",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "UGUI",
+      "Canvas",
+      "RectTransform"
+    ],
+    "excerpt": "UGUI 是 Unity 内置的 UI 系统，2014 年在 Unity 4.6 引入，至今仍是大多数项目的主力 UI 方案。UI Toolkit（UIElements）是新方向，但生态和案例远不如 UGUI 成熟。\n\n## 核心概念：Canvas\n\nCanvas 是 UI 的根。所有 UI 元素必"
+  },
+  {
+    "slug": "Unity学习/基础/07-动画系统",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "07-动画系统.md",
+    "title": "动画系统",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "Animator",
+      "Animation",
+      "AnimatorController"
+    ],
+    "excerpt": "Unity 的动画系统分两层：底层是 Animation（动画片段），上层是 Animator（状态机）。绝大多数业务逻辑只需要用到 Animator，但理解底层有助于调试。\n\n## Animation Clip\n\n动画片段是属性随时间变化的曲线集合。它可以驱动 Transform、SpriteRe"
+  },
+  {
+    "slug": "Unity学习/基础/08-物理系统",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "08-物理系统.md",
+    "title": "物理系统",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "物理",
+      "Rigidbody",
+      "Collider",
+      "Raycast"
+    ],
+    "excerpt": "Unity 内置两套物理引擎：3D 物理（PhysX）和 2D 物理（Box2D）。两套 API 几乎是对称的，命名加 `2D` 后缀即可（`Rigidbody` → `Rigidbody2D`）。以下以 2D 为例，3D 同理。\n\n## Rigidbody：让对象参与物理\n\nRigidbody 是"
+  },
+  {
+    "slug": "Unity学习/基础/09-资源管理与Addressables",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "09-资源管理与Addressables.md",
+    "title": "资源管理与 Addressables",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "Addressables",
+      "AssetBundle",
+      "资源加载"
+    ],
+    "excerpt": "资源管理在 Unity 项目里的分量，往往在中后期才暴露出来。前期几张图、几个预制体，Resources.Load 就够了。当项目变大、需要热更新时，Addressables 是当前 Unity 官方推荐的方案。\n\n## 三种加载方式\n\n| 方式 | 适用阶段 | 热更新 | 内存控制 |\n|---"
+  },
+  {
+    "slug": "Unity学习/基础/10-场景管理与加载",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "10-场景管理与加载.md",
+    "title": "场景管理与加载",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "SceneManager",
+      "异步加载",
+      "场景叠加"
+    ],
+    "excerpt": "场景是 Unity 项目的基本组织单位。简单项目一个场景就够了，但稍微上规模的项目就涉及场景切换、叠加、异步加载和过渡动画。\n\n## 基本操作\n\n```csharp\nusing UnityEngine.SceneManagement;\n\n// 同步加载——会卡帧，仅用于原型\nSceneManager"
+  },
+  {
+    "slug": "Unity学习/基础/11-Spine与2D骨骼动画",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "11-Spine与2D骨骼动画.md",
+    "title": "Spine 与 2D 骨骼动画",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "Spine",
+      "2D",
+      "骨骼动画",
+      "SkeletonAnimation"
+    ],
+    "excerpt": "如果你做 2D 游戏，Spine 很可能是动画管线中最核心的第三方工具。它用骨骼 + 网格变形 + 插槽替代传统的精灵序列帧，把动画数据量压到极小，同时保持动作的流畅度。\n\n## 什么是 Spine\n\nSpine 是一个独立的 2D 骨骼动画编辑器（由 Esoteric Software 开发）。设"
+  },
+  {
+    "slug": "Unity学习/基础/12-协程与异步操作",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "12-协程与异步操作.md",
+    "title": "协程与异步操作",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "协程",
+      "async",
+      "await",
+      "UniTask"
+    ],
+    "excerpt": "Unity 里有三种处理「等待」的方式：协程、async/await、Update 计时器。它们解决的问题相似，但原理完全不同。\n\n## 协程的本质\n\n协程是把一个方法分到多个帧里执行。它不是多线程——所有逻辑都在主线程按顺序跑，只是在 `yield return` 处暂停，等条件满足后继续。\n\n`"
+  },
+  {
+    "slug": "Unity学习/基础/13-性能优化",
+    "folders": [
+      "Unity学习",
+      "基础"
+    ],
+    "fileName": "13-性能优化.md",
+    "title": "性能优化",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "性能",
+      "Profiler",
+      "GC",
+      "DrawCall"
+    ],
+    "excerpt": "性能优化的第一步不是猜哪里慢——是测量。Unity 的 Profiler 是你最重要的优化工具，没有之一。打开它：`Window → Analysis → Profiler`。\n\n## Profiler 怎么看\n\n几个最重要的模块：\n\n| 模块 | 看什么 |\n|---|---|\n| CPU Usa"
+  },
+  {
+    "slug": "Unity学习/多平台/微信小游戏适配",
+    "folders": [
+      "Unity学习",
+      "多平台"
+    ],
+    "fileName": "微信小游戏适配.md",
+    "title": "微信小游戏适配",
+    "date": "2026-06",
+    "tags": [
+      "Unity",
+      "微信小游戏",
+      "WebGL",
+      "SDK 接入"
+    ],
+    "excerpt": "微信小游戏是国内游戏开发的重要分发渠道。从 Unity 打包到微信小游戏，需要经历平台适配、SDK 接入、性能调优三个主要环节。\n\n## 技术栈概述\n\nUnity 打包微信小游戏的路线是：\n\n```\nUnity C# → IL2CPP → WebAssembly → 微信小游戏运行时\n```\n\n微信"
+  }
+]

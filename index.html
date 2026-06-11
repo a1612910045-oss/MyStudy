@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="学习知识记录 - Unity 开发与 AI 探索">
+  <title>学习笔记</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <canvas class="cursor-particles" id="cursorParticles" aria-hidden="true"></canvas>
+
+  <!-- 左侧栏 -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-inner">
+      <div class="sidebar-header">
+        <h1 class="sidebar-name">学习笔记</h1>
+        <p class="sidebar-bio">Unity 开发者 / AI 学习者</p>
+      </div>
+
+      <div class="sidebar-search">
+        <label class="search-label" for="siteSearch">搜索</label>
+        <div class="search-box">
+          <span class="search-icon" aria-hidden="true"></span>
+          <input id="siteSearch" type="search" placeholder="搜索文章、标签、目录" autocomplete="off">
+        </div>
+        <p class="search-count" id="searchCount" aria-live="polite"></p>
+      </div>
+
+      <nav class="sidebar-nav" id="navTree">
+        <button class="nav-item active" type="button" data-page="about">
+          <span class="nav-icon">●</span>关于
+        </button>
+      </nav>
+    </div>
+  </aside>
+
+  <!-- 移动端顶栏 -->
+  <header class="mobile-bar" id="mobileBar">
+    <span class="mobile-title">学习笔记</span>
+    <button class="menu-toggle" id="menuToggle" aria-label="菜单">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- 主内容区 -->
+  <main class="main-content" id="mainContent">
+
+    <section class="article-view" id="contentView">
+      <p class="loading-msg">加载中…</p>
+    </section>
+
+    <footer class="page-footer">
+      <p>&copy; 2026 学习笔记</p>
+    </footer>
+
+  </main>
+
+  <script src="scripts/runtime/site-data.js"></script>
+  <script src="scripts/runtime/markdown.js"></script>
+  <script src="scripts/runtime/main.js"></script>
+</body>
+</html>
