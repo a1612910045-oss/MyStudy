@@ -2,17 +2,6 @@
  * 学习笔记 - 目录树 + 单文档阅读
  */
 
-const ABOUT_HTML = `
-  <h2 class="section-heading">关于</h2>
-  <div class="about-content">
-    <p>我是一名 Unity 游戏开发者，有一年的实际项目经验。参与过休闲游戏、ARPG等类型的开发，熟悉 Unity 引擎的常用模块和开发流程。</p>
-    <p>目前正在系统性地学习 AI 开发相关知识。这个网站用来记录学习过程中的笔记、代码片段和项目实践。</p>
-    <div class="skill-tags">
-      <span>Unity</span><span>C#</span><span>Game Framework</span><span>UGUI</span><span>Python</span>
-      <span>AI Agent</span><span>LLM</span><span>Git</span><span>Blender</span><span>微信小游戏</span>
-    </div>
-  </div>`;
-
 // 栏目标签从 res/sections.json 动态加载（site-data.js 内嵌时直接从 SITE_DATA.sections 读取）
 let SECTION_LABELS = {};
 let siteData = {};
@@ -457,7 +446,7 @@ async function renderCurrentRoute() {
   const hash = window.location.hash || "#about";
 
   if (hash === "#about") {
-    renderAbout();
+    await renderAbout();
     setActiveNav("about");
     return;
   }
@@ -474,12 +463,24 @@ async function renderCurrentRoute() {
   await renderArticle(dir, slug);
 }
 
-function renderAbout() {
+async function renderAbout() {
   const view = document.getElementById("contentView");
   if (!view) return;
 
-  view.innerHTML = ABOUT_HTML;
-  document.title = "学习笔记";
+  try {
+    const res = await fetch(`${RES_PREFIX}about.md`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const raw = await res.text();
+    view.innerHTML = `
+      <article class="article-doc">
+        <p class="section-heading">关于</p>
+        <div class="article-body">${renderMarkdown(raw)}</div>
+      </article>`;
+    document.title = "学习笔记";
+  } catch (err) {
+    console.error("加载关于页面失败:", err);
+    renderError("无法加载关于页面");
+  }
 }
 
 async function renderArticle(dir, slug) {
