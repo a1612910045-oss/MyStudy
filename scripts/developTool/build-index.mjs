@@ -115,9 +115,18 @@ for (const [dirName, label] of Object.entries(sections)) {
   siteItems[dirName] = buildSection(dirName, label);
 }
 
+// 嵌入关于页面内容（支持 file:// 协议离线打开）
+let about = "";
+const aboutPath = join(root, "res", "about.md");
+if (existsSync(aboutPath)) {
+  about = readFileSync(aboutPath, "utf-8");
+  console.log("  res/about.md  ← embedded");
+}
+
 const siteData = {
   sections,
   items: siteItems,
+  about,
 };
 
 writeFileSync(

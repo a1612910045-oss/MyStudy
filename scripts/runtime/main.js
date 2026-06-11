@@ -467,20 +467,40 @@ async function renderAbout() {
   const view = document.getElementById("contentView");
   if (!view) return;
 
-  try {
-    const res = await fetch(`${RES_PREFIX}about.md`);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const raw = await res.text();
-    view.innerHTML = `
-      <article class="article-doc">
-        <p class="section-heading">关于</p>
-        <div class="article-body">${renderMarkdown(raw)}</div>
-      </article>`;
-    document.title = "学习笔记";
-  } catch (err) {
-    console.error("加载关于页面失败:", err);
-    renderError("无法加载关于页面");
+  // 优先使用 site-data.js 内嵌的内容（支持 file:// 离线打开）
+  let raw = window.SITE_DATA?.about || "";
+
+  if (!raw) {
+    try {
+      const res = await fetch(`${RES_PREFIX}about.md`);
+      if (res.ok) raw = await res.text();
+    } catch (err) {
+      // fetch 失败时 raw 仍为空，走下面的报错
+    }
   }
+
+  if (!raw) {
+    renderError("无法加载关于页面");
+    return;
+  }
+
+  let html = renderMarkdown(raw);
+
+  // 末尾用 / 或 · 分隔的词 → 扁圆技能标签
+  html = html.replace(
+    /<p>([^<]+((?:\/|·)\s*[^<]+)+)<\/p>\s*$/,
+    (_, content) => {
+      const spans = content.split(/\s*(?:\/|·)\s*/).map((t) => `<span>${t.trim()}</span>`).join("");
+      return `<div class="skill-tags">${spans}</div>`;
+    }
+  );
+
+  view.innerHTML = `
+    <article class="article-doc">
+      <p class="section-heading">关于</p>
+      <div class="article-body">${html}</div>
+    </article>`;
+  document.title = "学习笔记";
 }
 
 async function renderArticle(dir, slug) {

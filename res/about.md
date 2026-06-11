@@ -6,4 +6,4 @@
 
 **技能标签**
 
-Unity / C# / Game Framework / UGUI / FGUI / Python / Lua / AI Agent / Git / MiniGame
+Unity · C# · Game Framework · UGUI · FGUI · Python · Lua · AI Agent · Git · MiniGame
